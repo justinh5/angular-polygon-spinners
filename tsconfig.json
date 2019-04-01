@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "polygon-spinner": [
+        "dist/polygon-spinner"
+      ],
+      "polygon-spinner/*": [
+        "dist/polygon-spinner/*"
+      ]
+    }
   }
 }

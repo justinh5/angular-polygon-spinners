@@ -2,5 +2,170 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "polygon-spinner": {
+      "root": "projects/polygon-spinner",
+      "sourceRoot": "projects/polygon-spinner/src",
+      "projectType": "library",
+      "prefix": "ngx",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/polygon-spinner/tsconfig.lib.json",
+            "project": "projects/polygon-spinner/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/polygon-spinner/src/test.ts",
+            "tsConfig": "projects/polygon-spinner/tsconfig.spec.json",
+            "karmaConfig": "projects/polygon-spinner/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/polygon-spinner/tsconfig.lib.json",
+              "projects/polygon-spinner/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "polygon-spinner-example": {
+      "root": "projects/polygon-spinner-example/",
+      "sourceRoot": "projects/polygon-spinner-example/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/polygon-spinner-example",
+            "index": "projects/polygon-spinner-example/src/index.html",
+            "main": "projects/polygon-spinner-example/src/main.ts",
+            "polyfills": "projects/polygon-spinner-example/src/polyfills.ts",
+            "tsConfig": "projects/polygon-spinner-example/tsconfig.app.json",
+            "assets": [
+              "projects/polygon-spinner-example/src/favicon.ico",
+              "projects/polygon-spinner-example/src/assets"
+            ],
+            "styles": [
+              "projects/polygon-spinner-example/src/styles.css"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/polygon-spinner-example/src/environments/environment.ts",
+                  "with": "projects/polygon-spinner-example/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "polygon-spinner-example:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "polygon-spinner-example:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "polygon-spinner-example:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/polygon-spinner-example/src/test.ts",
+            "polyfills": "projects/polygon-spinner-example/src/polyfills.ts",
+            "tsConfig": "projects/polygon-spinner-example/tsconfig.spec.json",
+            "karmaConfig": "projects/polygon-spinner-example/karma.conf.js",
+            "styles": [
+              "projects/polygon-spinner-example/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/polygon-spinner-example/src/favicon.ico",
+              "projects/polygon-spinner-example/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/polygon-spinner-example/tsconfig.app.json",
+              "projects/polygon-spinner-example/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "polygon-spinner-example-e2e": {
+      "root": "projects/polygon-spinner-example-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/polygon-spinner-example-e2e/protractor.conf.js",
+            "devServerTarget": "polygon-spinner-example:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "polygon-spinner-example:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/polygon-spinner-example-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "polygon-spinner"
 }
