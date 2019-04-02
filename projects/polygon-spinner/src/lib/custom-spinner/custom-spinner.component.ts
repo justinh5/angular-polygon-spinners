@@ -27,6 +27,7 @@ export class CustomSpinnerComponent implements OnChanges {
     this.polygons = [];
     this.configs.polygons.forEach(p => {
 
+      // Define polygon points
       switch(p.sides) {
          case 3: {
             p.points = this.three.toString();
@@ -38,10 +39,12 @@ export class CustomSpinnerComponent implements OnChanges {
          }
       }
 
+      // Sizing
+      p.size = p.size + '%';  // convert to string and add %
+
       // Animations
       let animations = [];
       if(p.spin && p.spin.direction) {
-        console.log(p.spin.direction);
         switch(p.spin.direction) {
           case 'clockwise': {
             animations.push(`spin-clockwise ${p.spin.duration} ${p.spin.type} infinite`);
@@ -56,7 +59,6 @@ export class CustomSpinnerComponent implements OnChanges {
       p.animations = animations.join(',');
 
       this.polygons.push(p);
-      console.log(this.polygons);
     });
 
   }

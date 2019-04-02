@@ -1,6 +1,6 @@
 
 <div *ngFor="let p of polygons" class="layer-container">
-  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" width="100%" height="100%" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" [attr.width]="p.size" [attr.height]="p.size" xmlns:xlink="http://www.w3.org/1999/xlink">
     <polygon class="polygon" stroke-linecap="square" [attr.points]="p.points"
     [style.fill]="p.fillColor"
     [style.stroke]="p.strokeColor"

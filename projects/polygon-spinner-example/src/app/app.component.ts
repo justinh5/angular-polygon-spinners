@@ -12,6 +12,8 @@ export class AppComponent {
     polygons: [
       {
         sides: 3,
+        layer: 1,
+        size: 100,
         fillColor: "#000000",
         strokeColor: "#000000",
         strokeWidth: "8",
