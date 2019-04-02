@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { PolygonSpinnerComponent } from './polygon-spinner.component';
 import { ThreeSpinnerComponent } from './three-spinner/three-spinner.component';

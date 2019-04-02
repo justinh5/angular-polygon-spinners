@@ -3,7 +3,7 @@ import { Component, Input, OnChanges } from '@angular/core';
 @Component({
   selector: 'ngx-custom-spinner',
   templateUrl: './custom-spinner.component.html',
-  styleUrls: ['./custom-spinner.component.css']
+  styleUrls: ['./custom-spinner.component.scss']
 })
 export class CustomSpinnerComponent implements OnChanges {
 
@@ -18,6 +18,7 @@ export class CustomSpinnerComponent implements OnChanges {
 
   @Input() configs;
   polygons = [];
+  sss = "--stroke-color1: cyan;--stroke-color2: yellow;--stroke-color3: magenta;"
 
 
   constructor() {}
@@ -37,6 +38,30 @@ export class CustomSpinnerComponent implements OnChanges {
             p.points = this.four.toString();
             break;
          }
+         case 5: {
+            p.points = this.five.toString();
+            break;
+         }
+         case 6: {
+            p.points = this.six.toString();
+            break;
+         }
+         case 7: {
+            p.points = this.seven.toString();
+            break;
+         }
+         case 8: {
+            p.points = this.eight.toString();
+            break;
+         }
+         case 9: {
+            p.points = this.nine.toString();
+            break;
+         }
+         case 10: {
+            p.points = this.ten.toString();
+            break;
+         }
       }
 
       // Sizing
@@ -44,6 +69,8 @@ export class CustomSpinnerComponent implements OnChanges {
 
       // Animations
       let animations = [];
+
+      // spin Animation
       if(p.spin && p.spin.direction) {
         switch(p.spin.direction) {
           case 'clockwise': {
@@ -56,6 +83,26 @@ export class CustomSpinnerComponent implements OnChanges {
           }
         }
       }
+
+      // color change animations
+      if(Array.isArray(p.strokeColor.color)) {
+        let length = p.strokeColor.color.length;
+        let time = p.strokeColor.time ? p.strokeColor.time : "3s";
+        for(let i=0; i<length; ++i) {
+          document.documentElement.style.setProperty(`--stroke-color${i+1}`, p.strokeColor.color[i]);
+        }
+        animations.push(`stroke-color-change-${length} ${time} linear infinite`);
+      }
+      if(Array.isArray(p.fillColor.color)) {
+        let length = p.fillColor.color.length;
+        let time = p.fillColor.time ? p.fillColor.time : "3s";
+        for(let i=0; i<length; ++i) {
+          document.documentElement.style.setProperty(`--fill-color${i+1}`, p.fillColor.color[i]);
+        }
+        animations.push(`fill-color-change-${length} ${time} linear infinite`);
+      }
+
+
       p.animations = animations.join(',');
 
       this.polygons.push(p);
