@@ -11,6 +11,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PolygonSpinnerComponent implements OnInit {
 
+  
+
   constructor() { }
 
   ngOnInit() {

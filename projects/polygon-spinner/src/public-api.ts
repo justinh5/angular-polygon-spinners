@@ -6,6 +6,7 @@ export * from './lib/polygon-spinner.service';
 export * from './lib/polygon-spinner.component';
 export * from './lib/polygon-spinner.module';
 
+export * from './lib/custom-spinner/custom-spinner.component';
 export * from './lib/three-spinner/three-spinner.component';
 export * from './lib/four-spinner/four-spinner.component';
 export * from './lib/five-spinner/five-spinner.component';
