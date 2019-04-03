@@ -3,7 +3,7 @@ import { Component, Input, OnChanges } from '@angular/core';
 @Component({
   selector: 'ngx-custom-spinner',
   templateUrl: './custom-spinner.component.html',
-  styleUrls: ['./custom-spinner.component.scss']
+  styleUrls: ['./custom-spinner.component.css']
 })
 export class CustomSpinnerComponent implements OnChanges {
 

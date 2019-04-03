@@ -170,7 +170,7 @@
   "defaultProject": "polygon-spinner",
   "schematics": {
     "@schematics/angular:component": {
-      "styleext": "scss"
+      "styleext": "css"
     }
   }
 }
