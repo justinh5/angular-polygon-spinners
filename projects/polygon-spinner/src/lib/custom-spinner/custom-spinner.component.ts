@@ -31,7 +31,6 @@ export class CustomSpinnerComponent implements OnChanges {
   }
 
   ngOnChanges() {
-    // console.log(this.configs);
     this.polygons = [];
     this.configs.polygons.forEach(p => {
       ++this.polyCounter;
@@ -130,18 +129,18 @@ export class CustomSpinnerComponent implements OnChanges {
       }
 
       // dash animations
-      if(p.stroke.dash && p.stroke.dash.direction && p.stroke.dash.type && p.stroke.dash.time) {
-        animations.push(`dash-${p.stroke.dash.direction} ${p.stroke.dash.time} ${p.stroke.dash.type} infinite`);
-      }
+      if(p.stroke.dash && p.stroke.dash.direction) {
+        let type = p.stroke.dash.type ? p.stroke.dash.type : "linear";
+        let time = p.stroke.dash.time ? p.stroke.dash.time : "5s";
+        let direction = p.stroke.dash.direction === 'clockwise' ? '-' : '';
+        let frames = `to { stroke-dashoffset: ${direction}${p.stroke.dash.dashOffset} }`;
 
-      // random keyrames
-      // let frames = '0% { transform: rotate(0deg); }' +
-      //      '100% { transform: rotate(360deg); }';
-      //
-      // let x = '@Keyframes spin-clockwise {' + frames + '}';
-      //
-      // // this.style.innerHTML = x;
-      // this.styleSheet.insertRule(x, this.styleSheet.length);
+        let aName = `dash-${this.polyCounter}`;
+        let rule = `@Keyframes ${aName} { ${frames} }`;
+        this.styleSheet.insertRule(rule, this.styleSheet.length);
+
+        animations.push(`${aName} ${time} ${type} infinite`);
+      }
 
       p.animations = animations.join(',');
 
@@ -149,7 +148,5 @@ export class CustomSpinnerComponent implements OnChanges {
     });
 
   }
-
-  // [style.animation]="a"
 
 }

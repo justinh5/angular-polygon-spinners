@@ -27,11 +27,18 @@ export class AppComponent {
           colorChange: {
             colors: ["cyan", "yellow", "magenta"],
             time: "5s"
+          },
+          dash: {
+            dashArray: 10,
+            dashOffset: 500,
+            direction: "clockwise",
+            type: "linear",
+            time: "20s"
           }
         },
         spin: {
           direction: "clockwise",
-          duration: "1s",
+          duration: "2s",
           type: "ease-in-out"
         }
       },
@@ -63,13 +70,6 @@ export class AppComponent {
     ]
   };
 
-  // ,
-  // dash: {
-  //   dashArray: 10,
-  //   dashOffset: 0,
-  //   direction: "clockwise",
-  //   type: "linear",
-  //   time: "5s"
-  // }
+
 
 }
