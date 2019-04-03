@@ -13,14 +13,22 @@ export class AppComponent {
       {
         sides: 3,
         size: 100,
-        fillColor: {
-          color: "#000000"
+        strokeLinecap: "butt",
+        fill: {
+          color: null,
+          colorChange: {
+            colors: ["violet", "red", "white"],
+            time: "1s"
+          }
         },
-        strokeColor: {
-          color: ["cyan", "yellow", "magenta"],
-          time: "5s"
+        stroke: {
+          color: null,
+          width: "8",
+          colorChange: {
+            colors: ["cyan", "yellow", "magenta"],
+            time: "5s"
+          }
         },
-        strokeWidth: "8",
         spin: {
           direction: "clockwise",
           duration: "1s",
@@ -30,14 +38,22 @@ export class AppComponent {
       {
         sides: 3,
         size: 60,
-        fillColor: {
-          color: ["orange", "purple", "black"],
-          time: "5s"
+        strokeLinecap: "butt",
+        fill: {
+          color: null,
+          colorChange: {
+            colors: ["orange", "purple", "black"],
+            time: "5s"
+          }
         },
-        strokeColor: {
-          color: "red"
+        stroke: {
+          color: null,
+          width: "8",
+          colorChange: {
+            colors: ["green", "pink", "blue"],
+            time: "5s"
+          },
         },
-        strokeWidth: "8",
         spin: {
           direction: "counter-clockwise",
           duration: "1s",
@@ -46,4 +62,14 @@ export class AppComponent {
       }
     ]
   };
+
+  // ,
+  // dash: {
+  //   dashArray: 10,
+  //   dashOffset: 0,
+  //   direction: "clockwise",
+  //   type: "linear",
+  //   time: "5s"
+  // }
+
 }

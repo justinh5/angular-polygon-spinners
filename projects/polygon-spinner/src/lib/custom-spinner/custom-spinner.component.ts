@@ -18,16 +18,23 @@ export class CustomSpinnerComponent implements OnChanges {
 
   @Input() configs;
   polygons = [];
-  sss = "--stroke-color1: cyan;--stroke-color2: yellow;--stroke-color3: magenta;"
+  styleSheet: any;
+  polyCounter: number = 0;
 
 
-  constructor() {}
+  constructor() {
+    this.polyCounter = 0;
+    let style = document.createElement("style");
+    style.appendChild(document.createTextNode(""));
+    document.head.appendChild(style);
+    this.styleSheet = style.sheet;
+  }
 
   ngOnChanges() {
     // console.log(this.configs);
     this.polygons = [];
     this.configs.polygons.forEach(p => {
-
+      ++this.polyCounter;
       // Define polygon points
       switch(p.sides) {
          case 3: {
@@ -85,23 +92,56 @@ export class CustomSpinnerComponent implements OnChanges {
       }
 
       // color change animations
-      if(Array.isArray(p.strokeColor.color)) {
-        let length = p.strokeColor.color.length;
-        let time = p.strokeColor.time ? p.strokeColor.time : "3s";
-        for(let i=0; i<length; ++i) {
-          document.documentElement.style.setProperty(`--stroke-color${i+1}`, p.strokeColor.color[i]);
+      if(p.stroke.colorChange) {
+        let length = p.stroke.colorChange.colors.length;
+        let time = p.stroke.colorChange.time ? p.stroke.colorChange.time : "3s";
+
+        let frames = `0%, 100% { stroke: ${p.stroke.colorChange.colors[0]}; }`;
+        let increment = Math.floor(100 / length);
+        let percentCounter = increment;
+        for(let i=1; i<length; ++i) {
+          frames += `${percentCounter}% { stroke: ${p.stroke.colorChange.colors[i]}; }`;
+          percentCounter += increment;
         }
-        animations.push(`stroke-color-change-${length} ${time} linear infinite`);
+
+        let aName = `stroke-color-change-${this.polyCounter}`;
+        let rule = `@Keyframes ${aName} { ${frames} }`;
+        this.styleSheet.insertRule(rule, this.styleSheet.length);
+
+        animations.push(`${aName} ${time} linear infinite`);
       }
-      if(Array.isArray(p.fillColor.color)) {
-        let length = p.fillColor.color.length;
-        let time = p.fillColor.time ? p.fillColor.time : "3s";
-        for(let i=0; i<length; ++i) {
-          document.documentElement.style.setProperty(`--fill-color${i+1}`, p.fillColor.color[i]);
+      if(p.fill.colorChange) {
+        let length = p.fill.colorChange.colors.length;
+        let time = p.fill.colorChange.time ? p.fill.colorChange.time : "3s";
+
+        let frames = `0%, 100% { fill: ${p.fill.colorChange.colors[0]}; }`;
+        let increment = Math.floor(100 / length);
+        let percentCounter = increment;
+        for(let i=1; i<length; ++i) {
+          frames += `${percentCounter}% { fill: ${p.fill.colorChange.colors[i]}; }`;
+          percentCounter += increment;
         }
-        animations.push(`fill-color-change-${length} ${time} linear infinite`);
+
+        let aName = `fill-color-change-${this.polyCounter}`;
+        let rule = `@Keyframes ${aName} { ${frames} }`;
+        this.styleSheet.insertRule(rule, this.styleSheet.length);
+
+        animations.push(`${aName} ${time} linear infinite`);
       }
 
+      // dash animations
+      if(p.stroke.dash && p.stroke.dash.direction && p.stroke.dash.type && p.stroke.dash.time) {
+        animations.push(`dash-${p.stroke.dash.direction} ${p.stroke.dash.time} ${p.stroke.dash.type} infinite`);
+      }
+
+      // random keyrames
+      // let frames = '0% { transform: rotate(0deg); }' +
+      //      '100% { transform: rotate(360deg); }';
+      //
+      // let x = '@Keyframes spin-clockwise {' + frames + '}';
+      //
+      // // this.style.innerHTML = x;
+      // this.styleSheet.insertRule(x, this.styleSheet.length);
 
       p.animations = animations.join(',');
 
