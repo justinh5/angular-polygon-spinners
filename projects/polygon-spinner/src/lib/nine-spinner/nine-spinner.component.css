@@ -1,5 +1,3 @@
-
-
 .layer-container {
   position: absolute;
   top: 0;
@@ -10,46 +8,37 @@
   align-items: center;
 }
 
-
 .polygon {
+  fill: transparent;
+  stroke-width: 10;
+  stroke-dashArray: 0.8;
+  stroke-dashOffset: 0;
   transform-origin: center center;
 }
 
 #p1 {
-  fill: cyan;
-  stroke: magenta;
-  stroke-width: 5;
-  animation: spin-clockwise 2s linear infinite;
+  animation: spin-clockwise 3s linear infinite, color-change-p1 10s linear infinite;
 }
 
 #p2 {
-  fill: cyan;
-  stroke: yellow;
-  stroke-width: 8;
-  animation: spin-counter-clockwise 2s linear infinite;
+  animation: spin-counter-clockwise 3s linear infinite, color-change-p2 10s linear infinite;;
 }
 
 #p3 {
-  fill: yellow;
-  stroke: magenta;
-  stroke-width: 10;
-  animation: spin-clockwise 2s linear infinite;
+  animation: spin-clockwise 3s linear infinite, color-change-p3 10s linear infinite;;
 }
 
+#p4 {
+  animation: spin-counter-clockwise 3s linear infinite, color-change-p1 10s linear infinite;;
+}
 
 @keyframes spin-clockwise {
-  0% {
-    transform: rotate(0deg);
-  }
   100% {
     transform: rotate(360deg);
   }
 }
 
 @keyframes spin-counter-clockwise {
-  0% {
-    transform: rotate(0deg);
-  }
   100% {
     transform: rotate(-360deg);
   }
@@ -58,14 +47,35 @@
 @keyframes color-change-p1 {
   0%, 100% {
     stroke: cyan;
-    fill: magenta;
   }
   33% {
     stroke: magenta;
-    fill: yellow;
   }
   66% {
     stroke: yellow;
-    fill: cyan;
+  }
+}
+
+@keyframes color-change-p2 {
+  0%, 100% {
+    stroke: magenta;
+  }
+  33% {
+    stroke: yellow;
+  }
+  66% {
+    stroke: cyan;
+  }
+}
+
+@keyframes color-change-p3 {
+  0%, 100% {
+    stroke: yellow;
+  }
+  33% {
+    stroke: cyan;
+  }
+  66% {
+    stroke: magenta;
   }
 }
