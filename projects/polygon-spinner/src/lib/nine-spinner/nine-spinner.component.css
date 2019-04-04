@@ -21,15 +21,15 @@
 }
 
 #p2 {
-  animation: spin-counter-clockwise 3s linear infinite, color-change-p2 10s linear infinite;;
+  animation: spin-counter-clockwise 3s linear infinite, color-change-p2 10s linear infinite;
 }
 
 #p3 {
-  animation: spin-clockwise 3s linear infinite, color-change-p3 10s linear infinite;;
+  animation: spin-clockwise 3s linear infinite, color-change-p3 10s linear infinite;
 }
 
 #p4 {
-  animation: spin-counter-clockwise 3s linear infinite, color-change-p1 10s linear infinite;;
+  animation: spin-counter-clockwise 3s linear infinite, color-change-p1 10s linear infinite;
 }
 
 @keyframes spin-clockwise {
