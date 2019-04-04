@@ -11,9 +11,9 @@
   animation: rotate-clockwise 2s linear infinite;
 }
 
-svg {
-  width: 25%;
-  height: 25%;
+
+.outer {
+  animation: grow-outer 4s linear infinite;
 }
 
 
@@ -25,37 +25,31 @@ svg {
 
 #p1 {
   transform: rotate(30deg);
-  animation: shrink-p1 4s linear infinite;
+  animation: grow-inner 4s linear infinite;
 }
 
 #p2 {
   transform: translateY(-50%) rotate(30deg) scale(1);
-  animation: shrink-p2 4s linear infinite;
 }
 
 #p3 {
   transform: translate(42%, -25%) rotate(30deg) scale(1);
-  animation: shrink-p3 4s linear infinite;
 }
 
 #p4 {
   transform: translate(42%, 25%) rotate(30deg) scale(1);
-  animation: shrink-p4 4s linear infinite;
 }
 
 #p5 {
   transform: translateY(50%) rotate(30deg) scale(1);
-  animation: shrink-p5 4s linear infinite;
 }
 
 #p6 {
   transform: translate(-42%, 25%) rotate(30deg) scale(1);
-  animation: shrink-p6 4s linear infinite;
 }
 
 #p7 {
   transform: translate(-42%, -25%) rotate(30deg) scale(1);
-  animation: shrink-p7 4s linear infinite;
 }
 
 
@@ -69,7 +63,7 @@ svg {
 }
 
 
-@keyframes shrink-p1 {
+@keyframes grow-inner {
   0%, 5%, 100% {
     transform: rotate(30deg) scale(0);
   }
@@ -78,56 +72,11 @@ svg {
   }
 }
 
-@keyframes shrink-p2 {
+@keyframes grow-outer {
   0%, 100% {
-    transform: translateY(-50%) rotate(30deg) scale(1);
+    transform: scale(1);
   }
   50%, 55% {
-    transform: translateY(-50%) rotate(30deg) scale(0);
-  }
-}
-
-@keyframes shrink-p3 {
-  0%, 100% {
-    transform: translate(42%, -25%) rotate(30deg) scale(1);
-  }
-  50%, 55% {
-    transform: translate(42%, -25%) rotate(30deg) scale(0);
-  }
-}
-
-@keyframes shrink-p4 {
-  0%, 100% {
-    transform: translate(42%, 25%) rotate(30deg) scale(1);
-  }
-  50%, 55% {
-    transform: translate(42%, 25%) rotate(30deg) scale(0);
-  }
-}
-
-@keyframes shrink-p5 {
-  0%, 100% {
-    transform: translateY(50%) rotate(30deg) scale(1);
-  }
-  50%, 55% {
-    transform: translateY(50%) rotate(30deg) scale(0);
-  }
-}
-
-@keyframes shrink-p6 {
-  0%, 100% {
-    transform: translate(-42%, 25%) rotate(30deg) scale(1);
-  }
-  50%, 55% {
-    transform: translate(-42%, 25%) rotate(30deg) scale(0);
-  }
-}
-
-@keyframes shrink-p7 {
-  0%, 100% {
-    transform: translate(-42%, -25%) rotate(30deg) scale(1);
-  }
-  50%, 55% {
-    transform: translate(-42%, -25%) rotate(30deg) scale(0);
+    transform: scale(0);
   }
 }

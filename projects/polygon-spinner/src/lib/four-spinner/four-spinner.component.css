@@ -1,5 +1,4 @@
 
-
 .layer-container {
   position: absolute;
   top: 0;
@@ -12,93 +11,60 @@
 
 
 .polygon {
+  fill: #41f4ac;
+  stroke: #41f4ac;
+  stroke-width: 5;
   transform-origin: center center;
 }
 
 #p1 {
-  stroke-width: 5;
-  animation: spin-clockwise 2s ease-in-out infinite, color-change-p1 6s linear infinite;
+  transform: translateX(80%) rotate(45deg);
+  animation: spin-p3 3s linear 0.8s infinite;
 }
 
 #p2 {
-  stroke-width: 8;
-  animation: spin-counter-clockwise 2s ease-in-out infinite, color-change-p2 6s linear infinite;
+  transform: rotate(45deg);
+  animation: spin-p2 3s linear 0.4s infinite;
 }
 
 #p3 {
-  stroke-width: 10;
-  animation: spin-clockwise 2s ease-in-out infinite, color-change-p3 6s linear infinite;
+  transform: translateX(-80%) rotate(45deg);
+  animation: spin-p1 3s linear infinite;
 }
 
 
-@keyframes spin-clockwise {
+@keyframes spin-p1 {
   0% {
-    transform: rotate(0deg);
+    transform: translateX(-80%) rotate(45deg) scale(1);
+  }
+  50% {
+    transform: translateX(-80%) rotate(405deg) scale(0);
   }
   100% {
-    transform: rotate(360deg);
+    transform: translateX(-80%) rotate(855deg) scale(1);
   }
 }
 
-@keyframes spin-counter-clockwise {
+@keyframes spin-p2 {
   0% {
-    transform: rotate(0deg);
+    transform: rotate(45deg) scale(1);
+  }
+  50% {
+    transform: rotate(405deg) scale(0);
   }
   100% {
-    transform: rotate(-360deg);
+    transform: rotate(855deg) scale(1);
   }
 }
 
-@keyframes color-change-p1 {
-  0%, 100% {
-    stroke-width: 0;
-    stroke: cyan;
-    fill: magenta;
+@keyframes spin-p3 {
+  0% {
+    transform: translateX(80%) rotate(45deg) scale(1);
   }
-  33% {
-    stroke-width: 5;
-    stroke: magenta;
-    fill: yellow;
+  50% {
+    transform: translateX(80%) rotate(405deg) scale(0);
   }
-  66% {
-    stroke-width: 10;
-    stroke: yellow;
-    fill: cyan;
-  }
-}
-
-@keyframes color-change-p2 {
-  0%, 100% {
-    stroke-width: 10;
-    stroke: magenta;
-    fill: yellow;
-  }
-  33% {
-    stroke-width: 5;
-    stroke: yellow;
-    fill: cyan;
-  }
-  66% {
-    stroke-width: 0;
-    stroke: cyan;
-    fill: magenta;
-  }
-}
-
-@keyframes color-change-p3 {
-  0%, 100% {
-    stroke-width: 5;
-    stroke: yellow;
-    fill: cyan;
-  }
-  33% {
-    stroke-width: 0;
-    stroke: cyan;
-    fill: magenta;
-  }
-  66% {
-    stroke-width: 10;
-    stroke: magenta;
-    fill: yellow;
+  100% {
+    transform: translateX(80%) rotate(855deg) scale(1);
   }
 }
