@@ -17,17 +17,17 @@
 
 #p1 {
   stroke-width: 5;
-  animation: spin-clockwise 2s ease-in-out infinite, color-change-p1 6s linear infinite;
+  animation: spin-clockwise 2s linear infinite, color-change-p1 6s linear infinite;
 }
 
 #p2 {
   stroke-width: 8;
-  animation: spin-counter-clockwise 2s ease-in-out infinite, color-change-p2 6s linear infinite;
+  animation: spin-counter-clockwise 2s linear infinite, color-change-p2 6s linear infinite;
 }
 
 #p3 {
   stroke-width: 10;
-  animation: spin-clockwise 2s ease-in-out infinite, color-change-p3 6s linear infinite;
+  animation: spin-clockwise 2s linear infinite, color-change-p3 6s linear infinite;
 }
 
 

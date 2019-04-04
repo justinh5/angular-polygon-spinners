@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SixSpinnerComponent implements OnInit {
 
+  readonly points = '50,24.2 71.9,36.8 71.9,62 50,74.7 28.1,62 28.1,36.8';
+
   constructor() { }
 
   ngOnInit() {
