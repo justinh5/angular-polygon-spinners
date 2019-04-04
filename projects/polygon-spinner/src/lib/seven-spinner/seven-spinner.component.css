@@ -1,0 +1,81 @@
+
+.layer-container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.polygon {
+  stroke-dasharray: 11;
+  stroke-dashoffset: 0;
+  border-radius: 10%;
+  transform-origin: center center;
+}
+
+#p1 {
+  fill: black;
+  stroke: black;
+  stroke-width: 6;
+  animation: dash-p1 4s linear infinite;
+}
+
+#p2 {
+  fill: #f2f2f2;
+  stroke: #f2f2f2;
+  stroke-width: 8;
+  animation: dash-p2 4s linear infinite;
+}
+
+#p3 {
+  fill: black;
+  stroke: black;
+  stroke-width: 8;
+  animation: dash-p3 4s linear infinite;
+}
+
+@keyframes dash-p1 {
+  0% {
+    stroke-dashoffset: 0;
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(0.8);
+  }
+  100% {
+    stroke-dashoffset: -198;
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes dash-p2 {
+  0% {
+    stroke-dashoffset: 0;
+    transform: rotate(0deg) scale(0.7);
+  }
+  50% {
+    transform: rotate(180deg) scale(0.5);
+  }
+  100% {
+    stroke-dashoffset: -198;
+    transform: rotate(360deg) scale(0.7);
+  }
+}
+
+@keyframes dash-p3 {
+  0% {
+    stroke-dashoffset: 0;
+    transform: rotate(0deg) scale(0.3);
+  }
+  50% {
+    transform: rotate(180deg) scale(0.4);
+  }
+  100% {
+    stroke-dashoffset: -198;
+    transform: rotate(360deg) scale(0.3);
+  }
+}
