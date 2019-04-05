@@ -39,7 +39,6 @@ export class CustomSpinnerComponent implements OnChanges {
       p.animations = this.setAnimations(p).join(',');
       this.polygons.push(p);
     });
-
   }
 
   // Set SVG polygon points
@@ -78,93 +77,105 @@ export class CustomSpinnerComponent implements OnChanges {
 
     // spin Animation
     if(p.spin && p.spin.direction) {
-      switch(p.spin.direction) {
-        case 'clockwise': {
-          animations.push(`spin-clockwise ${p.spin.time} ${p.spin.type} infinite`);
-          break;
-        }
-        case 'counter-clockwise': {
-          animations.push(`spin-counter-clockwise ${p.spin.time} ${p.spin.type} infinite`);
-          break;
-        }
-      }
+      animations.push(this.spin(p));
     }
 
     // color change animations
-    if(p.stroke.colorChange) {
-      let length = p.stroke.colorChange.colors.length;
-      let time = p.stroke.colorChange.time ? p.stroke.colorChange.time : '3s';
-
-      let frames = `0%, 100% { stroke: ${p.stroke.colorChange.colors[0]}; }`;
-      let increment = Math.floor(100 / length);
-      let percentCounter = increment;
-      for(let i=1; i<length; ++i) {
-        frames += `${percentCounter}% { stroke: ${p.stroke.colorChange.colors[i]}; }`;
-        percentCounter += increment;
-      }
-
-      let aName = `stroke-color-change-${this.polyCounter}`;
-      let rule = `@keyframes ${aName} { ${frames} }`;
-      this.styleSheet.insertRule(rule, this.styleSheet.length);
-
-      animations.push(`${aName} ${time} linear infinite`);
+    if(p.stroke.colorChange && p.stroke.colorChange.colors) {
+      animations.push(this.strokeColorChange(p));
     }
-    if(p.fill.colorChange) {
-      let length = p.fill.colorChange.colors.length;
-      let time = p.fill.colorChange.time ? p.fill.colorChange.time : '3s';
-
-      let frames = `0%, 100% { fill: ${p.fill.colorChange.colors[0]}; }`;
-      let increment = Math.floor(100 / length);
-      let percentCounter = increment;
-      for(let i=1; i<length; ++i) {
-        frames += `${percentCounter}% { fill: ${p.fill.colorChange.colors[i]}; }`;
-        percentCounter += increment;
-      }
-
-      let aName = `fill-color-change-${this.polyCounter}`;
-      let rule = `@keyframes ${aName} { ${frames} }`;
-      this.styleSheet.insertRule(rule, this.styleSheet.length);
-
-      animations.push(`${aName} ${time} linear infinite`);
+    if(p.fill.colorChange && p.fill.colorChange.colors) {
+      animations.push(this.fillColorChange(p));
     }
 
-    // Stroke animations
-
-    // stroke dash
+    // stroke animations
     if(p.stroke.dash && p.stroke.dash.direction) {
-      let type = p.stroke.dash.type ? p.stroke.dash.type : 'linear';
-      let time = p.stroke.dash.time ? p.stroke.dash.time : '5s';
-      let direction = p.stroke.dash.direction === 'clockwise' ? '-' : '';
-      let frames = `to { stroke-dashoffset: ${direction}${p.stroke.dash.dashOffset} }`;
-
-      let aName = `dash-${this.polyCounter}`;
-      let rule = `@keyframes ${aName} { ${frames} }`;
-      this.styleSheet.insertRule(rule, this.styleSheet.length);
-
-      animations.push(`${aName} ${time} ${type} infinite`);
+      animations.push(this.dash(p));
     }
-
-    // stroke width
-    if(p.stroke.widthChange) {
-      let length = p.stroke.widthChange.widths.length;
-      let time = p.stroke.widthChange.time ? p.stroke.widthChange.time : '3s';
-
-      let frames = `0%, 100% { stroke-width: ${p.stroke.widthChange.widths[0]}; }`;
-      let increment = Math.floor(100 / length);
-      let percentCounter = increment;
-      for(let i=1; i<length; ++i) {
-        frames += `${percentCounter}% { stroke-width: ${p.stroke.widthChange.widths[i]}; }`;
-        percentCounter += increment;
-      }
-
-      let aName = `stroke-width-change-${this.polyCounter}`;
-      let rule = `@keyframes ${aName} { ${frames} }`;
-      this.styleSheet.insertRule(rule, this.styleSheet.length);
-
-      animations.push(`${aName} ${time} linear infinite`);
+    if(p.stroke.widthChange && p.stroke.widthChange.widths) {
+      animations.push(this.strokeWidth(p));
     }
 
     return animations;
+  }
+
+  spin(p: any): string {
+    let time = p.spin.time ? p.spin.time : '3s';
+    let type = p.spin.type ? p.spin.type : 'linear';
+    if(p.spin.direction === 'clockwise') {
+      return `spin-clockwise ${time} ${type} infinite`;
+    }
+    return `spin-counter-clockwise ${time} ${type} infinite`;
+  }
+
+  strokeColorChange(p: any): string {
+    let length = p.stroke.colorChange.colors.length;
+    let time = p.stroke.colorChange.time ? p.stroke.colorChange.time : '3s';
+
+    let frames = `0%, 100% { stroke: ${p.stroke.colorChange.colors[0]}; }`;
+    let increment = Math.floor(100 / length);
+    let percentCounter = increment;
+    for(let i=1; i<length; ++i) {
+      frames += `${percentCounter}% { stroke: ${p.stroke.colorChange.colors[i]}; }`;
+      percentCounter += increment;
+    }
+
+    let aName = `stroke-color-change-${this.polyCounter}`;
+    let rule = `@keyframes ${aName} { ${frames} }`;
+    this.styleSheet.insertRule(rule, this.styleSheet.length);
+
+    return `${aName} ${time} linear infinite`;
+  }
+
+  fillColorChange(p: any): string {
+    let length = p.fill.colorChange.colors.length;
+    let time = p.fill.colorChange.time ? p.fill.colorChange.time : '3s';
+
+    let frames = `0%, 100% { fill: ${p.fill.colorChange.colors[0]}; }`;
+    let increment = Math.floor(100 / length);
+    let percentCounter = increment;
+    for(let i=1; i<length; ++i) {
+      frames += `${percentCounter}% { fill: ${p.fill.colorChange.colors[i]}; }`;
+      percentCounter += increment;
+    }
+
+    let aName = `fill-color-change-${this.polyCounter}`;
+    let rule = `@keyframes ${aName} { ${frames} }`;
+    this.styleSheet.insertRule(rule, this.styleSheet.length);
+
+    return `${aName} ${time} linear infinite`;
+  }
+
+  dash(p: any): string {
+    let type = p.stroke.dash.type ? p.stroke.dash.type : 'linear';
+    let time = p.stroke.dash.time ? p.stroke.dash.time : '5s';
+    let direction = p.stroke.dash.direction === 'clockwise' ? '-' : '';
+    let frames = `to { stroke-dashoffset: ${direction}${p.stroke.dash.dashOffset} }`;
+
+    let aName = `dash-${this.polyCounter}`;
+    let rule = `@keyframes ${aName} { ${frames} }`;
+    this.styleSheet.insertRule(rule, this.styleSheet.length);
+
+    return `${aName} ${time} ${type} infinite`;
+  }
+
+  strokeWidth(p: any): string {
+    let length = p.stroke.widthChange.widths.length;
+    let time = p.stroke.widthChange.time ? p.stroke.widthChange.time : '3s';
+
+    let frames = `0%, 100% { stroke-width: ${p.stroke.widthChange.widths[0]}; }`;
+    let increment = Math.floor(100 / length);
+    let percentCounter = increment;
+    for(let i=1; i<length; ++i) {
+      frames += `${percentCounter}% { stroke-width: ${p.stroke.widthChange.widths[i]}; }`;
+      percentCounter += increment;
+    }
+
+    let aName = `stroke-width-change-${this.polyCounter}`;
+    let rule = `@keyframes ${aName} { ${frames} }`;
+    this.styleSheet.insertRule(rule, this.styleSheet.length);
+
+    return `${aName} ${time} linear infinite`;
   }
 
 }
