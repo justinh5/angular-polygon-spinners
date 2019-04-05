@@ -21,8 +21,8 @@ module.exports = function (config) {
       fixWebpackSourcePaths: true
     },
     browsers: ['Chrome'],
-     customLaunchers: {
-      ChromeHeadlessNoSandbox: {
+    customLaunchers: {
+      ChromeHeadlessCI: {
         base: 'ChromeHeadless',
         flags: ['--no-sandbox']
       }

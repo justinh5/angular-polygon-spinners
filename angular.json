@@ -7,7 +7,7 @@
       "root": "projects/polygon-spinner",
       "sourceRoot": "projects/polygon-spinner/src",
       "projectType": "library",
-      "prefix": "ngx",
+      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",

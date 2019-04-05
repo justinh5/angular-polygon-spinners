@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'ngx-polygon-spinner',
+  selector: 'app-polygon-spinner',
   template: `
     <p>
       polygon-spinner works!
@@ -9,13 +9,8 @@ import { Component, OnInit } from '@angular/core';
   `,
   styles: []
 })
-export class PolygonSpinnerComponent implements OnInit {
-
-  
+export class PolygonSpinnerComponent {
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
 }

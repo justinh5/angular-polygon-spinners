@@ -1,28 +1,22 @@
 import { Component, Input, OnChanges } from '@angular/core';
 
 @Component({
-  selector: 'ngx-custom-spinner',
+  selector: 'app-custom-spinner',
   templateUrl: './custom-spinner.component.html',
   styleUrls: ['./custom-spinner.component.css']
 })
 export class CustomSpinnerComponent implements OnChanges {
 
-  readonly three: string = '50,28.6 68.6,60.8 31.4,60.8';
-  readonly four: string = '31,31 68,31 68,68 31,68';
-  readonly five: string = '50,25.2 73.9,42.6 64.8,70.8 35.2,70.8 26.1,42.6';
-  readonly six: string = '50,24.2 71.9,36.8 71.9,62 50,74.7 28.1,62 28.1,36.8';
-  readonly seven: string = '50,25.2 69.7,34.7 74.6,56 61,73.2 39,73.2 25.4,56 30.3,34.7';
-  readonly eight: string = '50,23.6 68.6,31.4 76.4,50 68.6,68.6 50,76.4 31.4,68.6 23.6,50 31.4,31.4';
-  readonly nine: string = '50,24 66.6,30 75.4,45.3 72.4,62.7 58.8,74 41.2,74 27.6,62.7 24.6,45.3 33.4,30';
-  readonly ten: string = '50,23.6 65.5,28.7 75.1,41.9 75.1,58.1 65.5,71.3 50,76.4 34.5,71.3 24.9,58.1 24.9,41.9 34.5,28.7';
-
   @Input() configs;
-  polygons = [];
+  points: string[];
+  polygons: any;
   styleSheet: any;
-  polyCounter: number = 0;
+  polyCounter: number;
 
 
   constructor() {
+    this.points = ['50,28.6 68.6,60.8 31.4,60.8', '31,31 68,31 68,68 31,68', '50,25.2 73.9,42.6 64.8,70.8 35.2,70.8 26.1,42.6', '50,24.2 71.9,36.8 71.9,62 50,74.7 28.1,62 28.1,36.8', '50,25.2 69.7,34.7 74.6,56 61,73.2 39,73.2 25.4,56 30.3,34.7', '50,23.6 68.6,31.4 76.4,50 68.6,68.6 50,76.4 31.4,68.6 23.6,50 31.4,31.4', '50,24 66.6,30 75.4,45.3 72.4,62.7 58.8,74 41.2,74 27.6,62.7 24.6,45.3 33.4,30', '50,23.6 65.5,28.7 75.1,41.9 75.1,58.1 65.5,71.3 50,76.4 34.5,71.3 24.9,58.1 24.9,41.9 34.5,28.7'];
+    this.polygons = [];
     this.polyCounter = 0;
     let style = document.createElement('style');
     style.appendChild(document.createTextNode(''));
@@ -34,7 +28,7 @@ export class CustomSpinnerComponent implements OnChanges {
     this.polygons = [];
     this.configs.polygons.forEach(p => {
       ++this.polyCounter;
-      p.points = this.definePoints(p);
+      p.points = (p.sides > 2 && p.sides < 11) ? this.points[p.sides-3] : 3;
       p.size = p.size + '%';
       p.animations = this.setAnimations(p).join(',');
       this.polygons.push(p);

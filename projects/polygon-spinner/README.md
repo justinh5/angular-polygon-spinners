@@ -1,31 +1,38 @@
 # Angular Polygon Spinners
 
-A spinner animation library for Angular 7.
+[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)]()
+
+Spinner animation library for Angular 7. Previews and demos under construction.
 
 Intended for experimentation and not for production.
 
 ## Intallation
 
-`npm install --save polygon-spinner`
+`npm install --save angular-polygon-spinner`
 
-OR
-
-`yarn install polygon-spinner`
 
 ## Usage
 
-If a jkfjldjgkf.
+Import the module into your module file.
 
-## Components
+```
+import { PolygonSpinnerModule } from 'angular-polygon-spinners';
 
-Each component fills the height and width of its parent container.
+  @NgModule({
+    imports: [PolygonSpinnerModule]
+  })
+```
+
+#### Components
+
+Each component is 200px x 200px by default and can be scaled accordingly.
 
 #### Customizable spinner
 
 ```
   <ngx-custom-spinner [configs]="configs"></ngx-custom-spinner>
 ```
-Configs are set in the parent component's TypeScript file, where each layered polygon is defined. Most options resemble familiar CSS properties.
+Configs are defined in the parent component's TypeScript file.
 
 The polygons are layered by order in the polygon array. [ (Back) , (Front) ]
 
@@ -94,9 +101,9 @@ dash: {
 }
 ```
 
-#### Default Spinners
+#### Preset Spinners
 
-Listed are default, non-configurable spinners:
+Listed are preset, non-configurable spinners:
 
 ```
   <ngx-three-spinner></ngx-three-spinner>
@@ -116,12 +123,7 @@ Listed are default, non-configurable spinners:
   <ngx-ten-spinner></ngx-ten-spinner>
 ```
 
-## Author
-
-  Justin Haupt
-
-  To contribute
 
 ## License
 
-This project is licensed under the MIT License.
+MIT © [Justin Haupt](mailto:jhaupt100@gmail.com)

@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'ngx-seven-spinner',
+  selector: 'app-seven-spinner',
   templateUrl: './seven-spinner.component.html',
   styleUrls: ['./seven-spinner.component.css']
 })
 export class SevenSpinnerComponent {
 
-  readonly points = '50,25.2 69.7,34.7 74.6,56 61,73.2 39,73.2 25.4,56 30.3,34.7';
+  points: string;
 
-  constructor() { }
+  constructor() {
+    this.points = '50,25.2 69.7,34.7 74.6,56 61,73.2 39,73.2 25.4,56 30.3,34.7';
+  }
 
 }
