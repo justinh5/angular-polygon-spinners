@@ -65,11 +65,6 @@ describe('CustomSpinnerComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('returns correct points for a polygon', () => {
-    let stringValue = component.definePoints(dummyConfigs.polygons[0]);
-    expect(stringValue).toEqual('50,28.6 68.6,60.8 31.4,60.8');
-  });
-
   it('returns expected spin animation property', () => {
     let stringValue = component.spin(dummyConfigs.polygons[0]);
     expect(stringValue).toEqual('spin-counter-clockwise 2s linear infinite');

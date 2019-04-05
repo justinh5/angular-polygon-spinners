@@ -35,36 +35,6 @@ export class CustomSpinnerComponent implements OnChanges {
     });
   }
 
-  // Set SVG polygon points
-  definePoints(p: any): string {
-    switch(p.sides) {
-       case 3: {
-          return this.three;
-       }
-       case 4: {
-          return this.four;
-       }
-       case 5: {
-          return this.five;
-       }
-       case 6: {
-          return this.six;
-       }
-       case 7: {
-          return this.seven;
-       }
-       case 8: {
-          return this.eight;
-       }
-       case 9: {
-          return this.nine;
-       }
-       case 10: {
-          return this.ten;
-       }
-    }
-  }
-
   setAnimations(p: any): string[] {
 
     let animations = [];
