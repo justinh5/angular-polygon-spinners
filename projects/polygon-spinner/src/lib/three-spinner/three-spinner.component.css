@@ -1,6 +1,12 @@
 
 
 .layer-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.layer {
   position: absolute;
   top: 0;
   width: 100%;
@@ -17,39 +23,33 @@
 
 #p1 {
   stroke-width: 5;
-  animation: spin-clockwise 2s linear infinite, color-change-p1 6s linear infinite;
+  animation: spin-clockwise 2s linear infinite, stroke-change-p1 6s linear infinite;
 }
 
 #p2 {
   stroke-width: 8;
-  animation: spin-counter-clockwise 2s linear infinite, color-change-p2 6s linear infinite;
+  animation: spin-counter-clockwise 2s linear infinite, stroke-change-p2 6s linear infinite;
 }
 
 #p3 {
   stroke-width: 10;
-  animation: spin-clockwise 2s linear infinite, color-change-p3 6s linear infinite;
+  animation: spin-clockwise 2s linear infinite, stroke-change-p3 6s linear infinite;
 }
 
 
 @keyframes spin-clockwise {
-  0% {
-    transform: rotate(0deg);
-  }
   100% {
     transform: rotate(360deg);
   }
 }
 
 @keyframes spin-counter-clockwise {
-  0% {
-    transform: rotate(0deg);
-  }
   100% {
     transform: rotate(-360deg);
   }
 }
 
-@keyframes color-change-p1 {
+@keyframes stroke-change-p1 {
   0%, 100% {
     stroke-width: 0;
     stroke: cyan;
@@ -67,7 +67,7 @@
   }
 }
 
-@keyframes color-change-p2 {
+@keyframes stroke-change-p2 {
   0%, 100% {
     stroke-width: 10;
     stroke: magenta;
@@ -85,7 +85,7 @@
   }
 }
 
-@keyframes color-change-p3 {
+@keyframes stroke-change-p3 {
   0%, 100% {
     stroke-width: 5;
     stroke: yellow;

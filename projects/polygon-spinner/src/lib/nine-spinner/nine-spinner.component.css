@@ -1,4 +1,10 @@
 .layer-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.layer {
   position: absolute;
   top: 0;
   width: 100%;

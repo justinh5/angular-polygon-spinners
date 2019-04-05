@@ -13,58 +13,85 @@ export class AppComponent {
       {
         sides: 3,
         size: 100,
-        strokeLinecap: "butt",
         fill: {
           color: null,
           colorChange: {
-            colors: ["violet", "red", "white"],
-            time: "1s"
+            colors: ["cyan", "magenta", "yellow"],
+            time: "8s"
           }
         },
         stroke: {
           color: null,
-          width: "8",
-          colorChange: {
-            colors: ["cyan", "yellow", "magenta"],
-            time: "5s"
+          width: null,
+          widthChange: {
+            widths: [10, 0],
+            time: "3s"
           },
-          dash: {
-            dashArray: 10,
-            dashOffset: 500,
-            direction: "clockwise",
-            type: "linear",
-            time: "20s"
+          colorChange: {
+            colors: ["magenta", "yellow", "cyan"],
+            time: "8s"
           }
         },
         spin: {
           direction: "clockwise",
-          duration: "2s",
-          type: "ease-in-out"
+          time: "2s",
+          type: "linear"
         }
       },
       {
         sides: 3,
-        size: 60,
-        strokeLinecap: "butt",
+        size: 70,
         fill: {
           color: null,
           colorChange: {
-            colors: ["orange", "purple", "black"],
-            time: "5s"
+            colors: ["yellow", "cyan", "magenta"],
+            time: "8s"
           }
         },
         stroke: {
           color: null,
-          width: "8",
-          colorChange: {
-            colors: ["green", "pink", "blue"],
-            time: "5s"
+          width: null,
+          widthChange: {
+            widths: [0, 10],
+            time: "3s"
           },
+          colorChange: {
+            colors: ["magenta", "yellow", "cyan"],
+            time: "8s"
+          }
         },
         spin: {
           direction: "counter-clockwise",
-          duration: "1s",
-          type: "ease-in-out"
+          time: "2s",
+          type: "linear"
+        }
+      },
+      {
+        sides: 3,
+        size: 40,
+        fill: {
+          color: null,
+          colorChange: {
+            colors: ["magenta", "yellow", "cyan"],
+            time: "8s"
+          }
+        },
+        stroke: {
+          color: null,
+          width: null,
+          widthChange: {
+            widths: [10, 5],
+            time: "3s"
+          },
+          colorChange: {
+            colors: ["yellow", "cyan", "magenta"],
+            time: "8s"
+          }
+        },
+        spin: {
+          direction: "clockwise",
+          time: "2s",
+          type: "linear"
         }
       }
     ]

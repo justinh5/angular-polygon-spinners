@@ -1,6 +1,11 @@
 
-
 .layer-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.layer {
   position: absolute;
   top: 0;
   width: 100%;
@@ -17,18 +22,12 @@
 
 
 @keyframes spin-clockwise {
-  0% {
-    transform: rotate(0deg);
-  }
   100% {
     transform: rotate(360deg);
   }
 }
 
 @keyframes spin-counter-clockwise {
-  0% {
-    transform: rotate(0deg);
-  }
   100% {
     transform: rotate(-360deg);
   }

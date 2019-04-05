@@ -1,6 +1,25 @@
 {
-  "name": "polygon-spinner",
-  "version": "0.0.1",
+  "name": "angular-polygon-spinners",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build --prod",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "packagr": "ng-packagr -p ng-package.json",
+    "deploy": "npm run build && ngh",
+    "pack": "npm pack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justinh5/angular-polygon-spinners"
+  },
+  "author": "Justin Haupt <jhaupt100@gmail.com>",
+  "url": "https://github.com/justinh5/angular-polygon-spinners",
+  "private": false,
   "peerDependencies": {
     "@angular/common": "^7.2.0",
     "@angular/core": "^7.2.0"

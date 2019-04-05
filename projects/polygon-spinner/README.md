@@ -1,24 +1,127 @@
-# PolygonSpinner
+# Angular Polygon Spinners
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.0.
+A spinner animation library for Angular 7.
 
-## Code scaffolding
+Intended for experimentation and not for production.
 
-Run `ng generate component component-name --project polygon-spinner` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project polygon-spinner`.
-> Note: Don't forget to add `--project polygon-spinner` or else it will be added to the default project in your `angular.json` file. 
+## Intallation
 
-## Build
+`npm install --save polygon-spinner`
 
-Run `ng build polygon-spinner` to build the project. The build artifacts will be stored in the `dist/` directory.
+OR
 
-## Publishing
+`yarn install polygon-spinner`
 
-After building your library with `ng build polygon-spinner`, go to the dist folder `cd dist/polygon-spinner` and run `npm publish`.
+## Usage
 
-## Running unit tests
+If a jkfjldjgkf.
 
-Run `ng test polygon-spinner` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Components
 
-## Further help
+Each component fills the height and width of its parent container.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+#### Customizable spinner
+
+```
+  <ngx-custom-spinner [configs]="configs"></ngx-custom-spinner>
+```
+Configs are set in the parent component's TypeScript file, where each layered polygon is defined. Most options resemble familiar CSS properties.
+
+The polygons are layered by order in the polygon array. [ (Back) , (Front) ]
+
+A basic configuration:
+
+```
+configs = {
+  polygons: [
+    {
+      sides: 3,
+      size: 100,
+      fill: {
+        color: "red",
+        colorChange: {}
+      },
+      stroke: {
+        color: "blue",
+        width: 8,
+        strokeLinecap: "butt",
+        colorChange: {},
+        dash: {}
+      },
+      spin: {
+        direction: "clockwise",
+        time: "2s",
+        type: "linear"
+      }
+    },
+    {
+      sides: 8,
+      ...
+    }
+  ]
+}
+```
+
+* `sides` The number of sides on the polygon (3-10)
+* `size` The scaled size of the polygon (0-100)
+* `fill.color` Shape fill color (color value | null)
+* `stroke.color` Stroke color (color value | null)
+* `stroke.width` Stroke width (width value | null)
+* `stroke.strokeLinecap` [SVG strokeLinecap attribute](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-linecap)
+
+##### Animation Options
+
+* `spin.direction` Rotation direction (clockwise | counter-clockwise)
+* `spin.time` Duration of one 360 degree spin
+* `spin.type` CSS [animation-timing-function](https://www.w3schools.com/cssref/css3_pr_animation-timing-function.asp) property
+
+Color changes can be applied to fill and strokes:
+```
+colorChange: {
+  colors: ["#f49e42", "red", "black"],
+  time: "5s"
+}
+```
+
+Dash properties can be applied to strokes:
+```
+dash: {
+  dashArray: 10,
+  dashOffset: 500,
+  direction: "clockwise",
+  type: "linear",
+  time: "20s"
+}
+```
+
+#### Default Spinners
+
+Listed are default, non-configurable spinners:
+
+```
+  <ngx-three-spinner></ngx-three-spinner>
+
+  <ngx-four-spinner></ngx-four-spinner>
+
+  <ngx-five-spinner></ngx-five-spinner>
+
+  <ngx-six-spinner></ngx-six-spinner>
+
+  <ngx-seven-spinner></ngx-seven-spinner>
+
+  <ngx-eight-spinner></ngx-eight-spinner>
+
+  <ngx-nine-spinner></ngx-nine-spinner>
+
+  <ngx-ten-spinner></ngx-ten-spinner>
+```
+
+## Author
+
+  Justin Haupt
+
+  To contribute
+
+## License
+
+This project is licensed under the MIT License.
