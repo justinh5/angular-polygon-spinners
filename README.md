@@ -6,7 +6,7 @@
 [![npm](https://img.shields.io/npm/v/angular-polygon-spinners.svg)](https://www.npmjs.com/package/angular-polygon-spinners)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)]()
 
-Spinner animation library for Angular 6 or 7. Previews and demos under construction.
+Spinner animation library for Angular 6 or 7. Demo [here](#).
 
 Intended for experimentation and not for production.
 
