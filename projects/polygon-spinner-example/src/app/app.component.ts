@@ -3,95 +3,41 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'polygon-spinner-example';
 
-  configs = {
+  configs1 = {
     polygons: [
       {
-        sides: 3,
+        sides: 6,
+        size: 100,
+        fill: {
+          color: "#41f4ac"
+        },
+        stroke: {},
+        spin: {}
+      }
+    ]
+  };
+
+  configs2 = {
+    polygons: [
+      {
+        sides: 6,
         size: 100,
         fill: {
           color: null,
           colorChange: {
-            colors: ["cyan", "magenta", "yellow"],
-            time: "8s"
+            colors: ["#41f4ac", "#f14e3b", "#3b4af0", "#da3aef", "#b5ef39", "#3951ef"]
           }
         },
-        stroke: {
-          color: null,
-          width: null,
-          widthChange: {
-            widths: [10, 0],
-            time: "3s"
-          },
-          colorChange: {
-            colors: ["magenta", "yellow", "cyan"],
-            time: "8s"
-          }
-        },
+        stroke: {},
         spin: {
           direction: "clockwise",
-          time: "2s",
-          type: "linear"
-        }
-      },
-      {
-        sides: 3,
-        size: 70,
-        fill: {
-          color: null,
-          colorChange: {
-            colors: ["yellow", "cyan", "magenta"],
-            time: "8s"
-          }
-        },
-        stroke: {
-          color: null,
-          width: null,
-          widthChange: {
-            widths: [0, 10],
-            time: "3s"
-          },
-          colorChange: {
-            colors: ["magenta", "yellow", "cyan"],
-            time: "8s"
-          }
-        },
-        spin: {
-          direction: "counter-clockwise",
-          time: "2s",
-          type: "linear"
-        }
-      },
-      {
-        sides: 3,
-        size: 40,
-        fill: {
-          color: null,
-          colorChange: {
-            colors: ["magenta", "yellow", "cyan"],
-            time: "8s"
-          }
-        },
-        stroke: {
-          color: null,
-          width: null,
-          widthChange: {
-            widths: [10, 5],
-            time: "3s"
-          },
-          colorChange: {
-            colors: ["yellow", "cyan", "magenta"],
-            time: "8s"
-          }
-        },
-        spin: {
-          direction: "clockwise",
-          time: "2s",
-          type: "linear"
+          time: "3s",
+          type: "ease-in-out"
         }
       }
     ]

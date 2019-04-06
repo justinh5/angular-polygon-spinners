@@ -1,33 +1,73 @@
 
+<h1 id="title">Angular &nbsp;&nbsp;&nbsp;&nbsp;Polygon &nbsp;&nbsp;&nbsp;&nbsp;Spinners</h1>
 
+<div id="install-container">
 
+  <a href="https://github.com/justinh5/angular-polygon-spinners" Title="Github" alt="Github">
+    <svg version="1.1" class="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32.6 31.8" style="enable-background:new 0 0 32.6 31.8;" xml:space="preserve">
+      <path class="st0" fill="#ed5038" d="M16.3,0C7.3,0,0,7.3,0,16.3c0,7.2,4.7,13.3,11.1,15.5c0.8,0.1,1.1-0.4,1.1-0.8c0-0.4,0-1.4,0-2.8
+      	c-4.5,1-5.5-2.2-5.5-2.2c-0.7-1.9-1.8-2.4-1.8-2.4c-1.5-1,0.1-1,0.1-1c1.6,0.1,2.5,1.7,2.5,1.7c1.5,2.5,3.8,1.8,4.7,1.4
+      	c0.1-1.1,0.6-1.8,1-2.2c-3.6-0.4-7.4-1.8-7.4-8.1c0-1.8,0.6-3.2,1.7-4.4C7.4,10.7,6.8,9,7.7,6.8c0,0,1.4-0.4,4.5,1.7
+      	c1.3-0.4,2.7-0.5,4.1-0.5c1.4,0,2.8,0.2,4.1,0.5c3.1-2.1,4.5-1.7,4.5-1.7c0.9,2.2,0.3,3.9,0.2,4.3c1,1.1,1.7,2.6,1.7,4.4
+      	c0,6.3-3.8,7.6-7.4,8c0.6,0.5,1.1,1.5,1.1,3c0,2.2,0,3.9,0,4.5c0,0.4,0.3,0.9,1.1,0.8c6.5-2.2,11.1-8.3,11.1-15.5
+      	C32.6,7.3,25.3,0,16.3,0z"/>
+    </svg>
+  </a>
 
-<div class="cont">
-  <app-custom-spinner [spinnerConfigs]="configs"></app-custom-spinner>
+  <a href="https://www.npmjs.com/package/angular-polygon-spinners" Title="NPM" alt="NPM">
+    <svg version="1.1" class="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" style="enable-background:new 0 0 1000 1000;" xml:space="preserve">
+      <g>
+      	<path fill="#ed5038" d="M10,10v980h980V10H10z M806.3,806.3H683.8v-490H500v490H193.8V193.8h612.5V806.3z"/>
+      </g>
+    </svg>
+  </a>
 </div>
 
+<h1>Build a spinner</h1>
+<div id="build-container">
+  <app-custom-spinner [spinnerConfigs]="configs1"></app-custom-spinner>
+  <svg version="1.1" id="arrow" focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 448 512" style="enable-background:new 0 0 448 512;" xml:space="preserve">
+    <path class="st0" fill="#ed5038" d="M190.5,66.9l22.2-22.2c9.4-9.4,24.6-9.4,33.9,0L441,239c9.4,9.4,9.4,24.6,0,33.9L246.6,467.3
+    	c-9.4,9.4-24.6,9.4-33.9,0l-22.2-22.2c-9.5-9.5-9.3-25,0.4-34.3L311.4,296H24c-13.3,0-24-10.7-24-24v-32c0-13.3,10.7-24,24-24h287.4
+    	L190.9,101.2C181.1,91.9,180.9,76.4,190.5,66.9z"/>
+  </svg>
+  <app-custom-spinner [spinnerConfigs]="configs2"></app-custom-spinner>
+</div>
 
-<div class="cont">
-  <app-three-spinner></app-three-spinner>
+<h1>Presets</h1>
+<div id="spinner-grid">
+  <div class="spinner-container">
+    <h3>Triangle</h3>
+    <app-three-spinner></app-three-spinner>
+  </div>
+  <div class="spinner-container">
+    <h3>Square</h3>
+    <app-four-spinner></app-four-spinner>
+  </div>
+  <div class="spinner-container">
+    <h3>Pentagon</h3>
+    <app-five-spinner></app-five-spinner>
+  </div>
+  <div class="spinner-container">
+    <h3>Hexagon</h3>
+    <app-six-spinner></app-six-spinner>
+  </div>
+  <div class="spinner-container">
+    <h3>Heptagon</h3>
+    <app-seven-spinner></app-seven-spinner>
+  </div>
+  <div class="spinner-container">
+    <h3>Octagon</h3>
+    <app-eight-spinner></app-eight-spinner>
+  </div>
+  <div class="spinner-container">
+    <h3>Nonagon</h3>
+    <app-nine-spinner></app-nine-spinner>
+  </div>
+  <div class="spinner-container">
+    <h3>Decagon</h3>
+    <app-ten-spinner></app-ten-spinner>
+  </div>
 </div>
-<div class="cont">
-  <app-four-spinner></app-four-spinner>
-</div>
-<div class="cont">
-  <app-five-spinner></app-five-spinner>
-</div>
-<div class="cont">
-  <app-six-spinner></app-six-spinner>
-</div>
-<div class="cont">
-  <app-seven-spinner></app-seven-spinner>
-</div>
-<div class="cont">
-  <app-eight-spinner></app-eight-spinner>
-</div>
-<div class="cont">
-  <app-nine-spinner></app-nine-spinner>
-</div>
-<div class="cont">
-  <app-ten-spinner></app-ten-spinner>
-</div>
+
+<div id="footer"></div>

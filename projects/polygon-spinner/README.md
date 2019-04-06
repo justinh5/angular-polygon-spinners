@@ -1,11 +1,12 @@
 # Angular Polygon Spinners
 
-[![Build Status](https://travis-ci.org/justinh5/angular-polygon-spinners.svg?branch=master)](https://travis-ci.org/justinh5/angular-polygon-spinners)
+[![Build Status](https://travis-ci.com/justinh5/angular-polygon-spinners.svg?branch=master)](https://travis-ci.com/justinh5/angular-polygon-spinners)
 [![support](https://img.shields.io/badge/Support-Angular%206.x-brightgreen.svg)](https://angular.io/docs)
+[![support](https://img.shields.io/badge/Support-Angular%207.x-brightgreen.svg)](https://angular.io/docs)
 [![npm](https://img.shields.io/npm/v/angular-polygon-spinners.svg)](https://www.npmjs.com/package/angular-polygon-spinners)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)]()
 
-Spinner animation library for Angular 6 or 7. Previews and demos under construction.
+Spinner animation library for Angular 6 or 7. Demo [here](#).
 
 Intended for experimentation and not for production.
 

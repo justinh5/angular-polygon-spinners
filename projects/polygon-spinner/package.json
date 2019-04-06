@@ -1,6 +1,6 @@
 {
   "name": "angular-polygon-spinners",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Angular spinner animation library",
   "license": "MIT",
   "scripts": {
@@ -23,6 +23,8 @@
   "private": false,
   "keywords": [
     "angular",
+    "angular6",
+    "angular7",
     "spinners",
     "spinner",
     "animation",

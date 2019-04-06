@@ -58,6 +58,7 @@
               "projects/polygon-spinner-example/src/assets"
             ],
             "styles": [
+              "./node_modules/normalize.css/normalize.css",
               "projects/polygon-spinner-example/src/styles.css"
             ],
             "scripts": [],

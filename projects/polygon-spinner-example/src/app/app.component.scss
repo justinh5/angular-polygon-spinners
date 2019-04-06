@@ -1,0 +1,89 @@
+
+@import url('https://fonts.googleapis.com/css?family=Monoton|Roboto+Condensed');
+
+$clay-red: #ed5038;
+
+#title {
+  text-align: center;
+  font-family: 'Monoton', Arial, cursive;
+  font-size: 40px;
+  color: $clay-red;
+  // margin-bottom: 50px;
+}
+
+
+h3, h1, p {
+  text-align: center;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: $clay-red;
+}
+
+
+#spinner-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 300px 300px 300px 300px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+#install-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+
+  .logo {
+    width: 40px;
+    height: 50px;
+    margin: 0 20px;
+    padding-bottom: 10px;
+
+    &:hover {
+      cursor: pointer;
+      border-bottom: 5px solid $clay-red;
+      transition: 0.6s;
+    }
+  }
+
+  p {
+    font-family: sans-serif;
+    font-size: 15px;
+    padding: 5px;
+  }
+}
+
+#build-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  margin-bottom: 100px;
+}
+
+.spinner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  margin: 0 auto;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+
+#arrow {
+  width: 30px;
+}
+
+
+@media only screen and (max-width: 750px) {
+  #spinner-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 300px 300px;
+  }
+}
