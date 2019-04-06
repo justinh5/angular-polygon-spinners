@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { PolygonSpinnerModule } from 'polygon-spinner';
+import { PolygonSpinnerModule } from 'angular-polygon-spinners';
 
 import { AppComponent } from './app.component';
 
