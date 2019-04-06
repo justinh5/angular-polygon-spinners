@@ -6,7 +6,7 @@
 [![npm](https://img.shields.io/npm/v/angular-polygon-spinners.svg)](https://www.npmjs.com/package/angular-polygon-spinners)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)]()
 
-Spinner animation library for Angular 6 or 7. Demo [here](#).
+Spinner animation library for Angular 6 or 7. Demo [here](https://naughty-mclean-f78b8d.netlify.com/).
 
 Intended for experimentation and not for production.
 
@@ -34,7 +34,7 @@ Each component is 200px x 200px by default and can be scaled accordingly.
 #### Customizable spinner
 
 ```
-  <ngx-custom-spinner [spinnerConfigs]="configs"></ngx-custom-spinner>
+  <app-custom-spinner [spinnerConfigs]="configs"></app-custom-spinner>
 ```
 Configs are defined in the parent component's TypeScript file.
 
@@ -110,21 +110,21 @@ dash: {
 Listed are preset, non-configurable spinners:
 
 ```
-  <ngx-three-spinner></ngx-three-spinner>
+  <app-three-spinner></app-three-spinner>
 
-  <ngx-four-spinner></ngx-four-spinner>
+  <app-four-spinner></app-four-spinner>
 
-  <ngx-five-spinner></ngx-five-spinner>
+  <app-five-spinner></app-five-spinner>
 
-  <ngx-six-spinner></ngx-six-spinner>
+  <app-six-spinner></app-six-spinner>
 
-  <ngx-seven-spinner></ngx-seven-spinner>
+  <app-seven-spinner></app-seven-spinner>
 
-  <ngx-eight-spinner></ngx-eight-spinner>
+  <app-eight-spinner></app-eight-spinner>
 
-  <ngx-nine-spinner></ngx-nine-spinner>
+  <app-nine-spinner></app-nine-spinner>
 
-  <ngx-ten-spinner></ngx-ten-spinner>
+  <app-ten-spinner></app-ten-spinner>
 ```
 
 
