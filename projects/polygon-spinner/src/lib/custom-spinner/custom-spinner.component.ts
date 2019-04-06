@@ -7,7 +7,7 @@ import { Component, Input, OnChanges } from '@angular/core';
 })
 export class CustomSpinnerComponent implements OnChanges {
 
-  @Input() configs;
+  @Input() spinnerConfigs;
   points: string[];
   polygons: any;
   styleSheet: any;
@@ -26,7 +26,7 @@ export class CustomSpinnerComponent implements OnChanges {
 
   ngOnChanges() {
     this.polygons = [];
-    this.configs.polygons.forEach(p => {
+    this.spinnerConfigs.polygons.forEach(p => {
       ++this.polyCounter;
       p.points = (p.sides > 2 && p.sides < 11) ? this.points[p.sides-3] : 3;
       p.size = p.size + '%';

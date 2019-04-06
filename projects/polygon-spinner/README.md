@@ -1,8 +1,9 @@
 # Angular Polygon Spinners
 
+[![support](https://img.shields.io/badge/Support-Angular%206.x-brightgreen.svg)](https://angular.io/docs)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)]()
 
-Spinner animation library for Angular 7. Previews and demos under construction.
+Spinner animation library for Angular 6 or 7. Previews and demos under construction.
 
 Intended for experimentation and not for production.
 
@@ -30,7 +31,7 @@ Each component is 200px x 200px by default and can be scaled accordingly.
 #### Customizable spinner
 
 ```
-  <ngx-custom-spinner [configs]="configs"></ngx-custom-spinner>
+  <ngx-custom-spinner [spinnerConfigs]="configs"></ngx-custom-spinner>
 ```
 Configs are defined in the parent component's TypeScript file.
 
