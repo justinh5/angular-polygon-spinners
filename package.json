@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "build_lib": "ng build polygon-spinner",
-    "test": "ng test",
+    "test": "ng test polygon-spinner",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "npm_pack": "cd dist/polygon-spinner && npm pack",
